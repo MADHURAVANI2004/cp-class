@@ -1,0 +1,13 @@
+class Solution:
+    def pairSum(self, head: Optional[ListNode]) -> int:
+        listForm = []
+        curr = head    
+        while curr:
+            listForm.append(curr.val)
+            curr = curr.next
+        end = -1
+        maxSum = -1
+        for i in range(len(listForm)//2):
+            maxSum = max(maxSum, listForm[i]+listForm[end])
+            end -= 1
+        return maxSum
