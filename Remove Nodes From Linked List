@@ -1,0 +1,20 @@
+class Solution:
+    def removeNodes(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        if not head:
+            return None
+        s = []
+        element = head
+        while element:
+            s.append(element)
+            element = element.next
+        last = s.pop()
+        max_element = last.val
+        while s:
+            current = s.pop()
+            if current.val < max_element:
+                continue
+            else:
+                max_element = current.val
+                current.next = last
+                last = current
+        return last
