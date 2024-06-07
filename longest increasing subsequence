@@ -9,3 +9,24 @@ n = len(nums)
 nums=10,22,0,33,4,50,41,89
 result=longest_increasing_subsequence(nums)
 print(result)
+
+#memo
+def longest_increasing_subsequence(nums):
+    memo={}
+    def helper(i):
+        if i in memo:
+            return memo[i]
+        length=1
+        for j in range(i):
+            if nums[i]>nums[j]:
+                length=max(length,helper(j)+1)
+        memo[i]=length
+        return length
+    max_length=0
+    for i in range(len(nums)):
+        max_length=max(max_length,helper(i))
+    return max_length
+nums=[10,22,9,33,21,50,41,60,80]
+result=longest_increasing_subsequence(nums)
+print(result)
+
