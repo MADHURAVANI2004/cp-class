@@ -1,0 +1,19 @@
+memo={}
+def min_coins(coins,a,r):
+    if r < 0:
+        return float("inf")
+    if r == 0:
+        return 0
+    if r in memo:
+        return memo[r]
+    min_count=float("inf")
+    for coin in coins:
+        count=min_coins(coins,a,r-coin)+1
+        min_count=min(min_count,count)
+        memo[r]= min_count
+        return min_count
+coins=[25,10,5]
+v=30
+result=min_coins(coins,v,v)
+print(memo)
+    
