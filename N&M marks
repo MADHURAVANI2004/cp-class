@@ -1,0 +1,38 @@
+Read N students M subject marks along with their rollno&names,print the topper name,rollno and total marks
+#program
+import java.util.*;
+class Topper {
+    public static void main(String args[])
+	{
+		int m,n;
+		String names[];
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter no of Students");
+		m=sc.nextInt();
+		System.out.println("Enter no of Subjects");
+		n=sc.nextInt();
+		names=new String[m];
+		int marks[][];
+		marks=new int[m][n];
+		int tot=0,topper=0,highest=0;
+		for(int i=0; i<m; i++)
+		{	tot=0;
+			System.out.println("Enter name : ");
+			names[i]=sc.next();
+			for(int j=0;j<n;j++)
+			{
+				marks[i][j]=sc.nextInt();
+				tot += marks[i][j];
+			}
+			System.out.println("total mark "+tot+" student no: "+i);
+			if(tot > highest)
+			{
+				highest=tot;
+				topper=i;
+			}
+		}
+		System.out.println("Highest mark "+highest);
+		System.out.println("Student no" +topper);
+		System.out.println("Student name:"+ names[topper]);
+	}
+}
