@@ -1,0 +1,35 @@
+Read m salespersons N no of days print best sales person and best sales day with using static values and not use scanner?
+#program
+import java.util.*;
+public class Sales{
+    public static void main(String[] args) {
+        int days = 6;
+        int salespersons = 4;
+        int[][] salesData = {
+            {5,6,2,3,4,5}, 
+            {3,1,2,2,2,3}, 
+            {2,5,4,4,4,4}, 
+            {8,1,5,6,6,7}  
+        };
+        int bestSalesperson = 0;
+        int bestSalesDay = 0;
+        int maxSales = 0;
+        int maxDaySales = 0;
+        for (int i = 0; i < salespersons; i++) {
+            int totalSales = 0;
+            for (int j = 0; j < days; j++) {
+                totalSales += salesData[i][j];
+                if (salesData[i][j] > maxDaySales) {
+                    maxDaySales = salesData[i][j];
+                    bestSalesDay = j;
+                }
+            }
+            if (totalSales > maxSales) {
+                maxSales = totalSales;
+                bestSalesperson = i;
+            }
+        }
+        System.out.println("The best salesperson is salesperson " + (bestSalesperson + 1));
+        System.out.println("The best sales day is day " + (bestSalesDay + 1));
+    }
+}
