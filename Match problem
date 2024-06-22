@@ -1,0 +1,46 @@
+#match
+import re
+pattern=r'^Hello'
+String='Hello World!'
+match=re.match(pattern,String)
+print(match)
+if match:
+    print("Match found:",match.group())
+else:
+    print("No match")
+
+#method to search
+import re
+pattern=r'World'
+String='Hello,World!'
+match=re.search(pattern,String)
+print(match)
+if match:
+    print("Match found:",match.group())
+else:
+    print("No match")
+#pattern for Group(n)
+import re
+pattern=r'(\d+)-(\d+)-(\d+)'
+String='My phone Number is 123-456-7890'
+match=re.search(pattern,String)
+print(match)
+if match:
+    print("Full match:",match.group())
+    print("Group 1:",match.group(1))
+    print("Group 2:",match.group(2))
+    print("Group 3:",match.group(3))
+else:
+    print("No match")
+#Finding all matches
+import re
+pattern=r'\d+'
+String='There are 123 apples,456 oranges,986 bananas'
+match=re.findall(pattern,String)
+print("Matches Found",match)
+
+#Finding all Word
+pattern=r'\w+'
+String='This is a test'
+match=re.findall(pattern,String)
+print("Matches Found",match)
