@@ -44,3 +44,56 @@ pattern=r'\w+'
 String='This is a test'
 match=re.findall(pattern,String)
 print("Matches Found",match)
+#Using flags to modify
+import re
+pattern=r'apple'
+String='I like Apple and apple pie'
+match=re.findall(pattern,String,re.IGNORECASE)
+print("Matches Found",match)
+
+#Extracting all the words
+import re
+pattern=r'\b\w+\b'
+String='Hello world! This is a test'
+match=re.findall(pattern,String,re.IGNORECASE)
+print("Matches Found",match)
+
+#Extracting the dates
+import re
+pattern=r'\b\d(4)-\d(2)-\d(2)\b'
+String='Important dates:2024-06-22,2023-01-15'
+match=re.findall(pattern,String)
+print("Matches Found",match)
+
+#Single Character
+import re
+pattern=r'colou?r'
+Strings=['color','colour','colr']
+matches=[re.match(pattern,String)for String in Strings]
+for match in matches:
+        if match:
+            print(F"Matched:{match.group()}")
+        else:
+             print("No match")
+#Single Character
+import re
+pattern=r'colou?r'
+Strings=['color','colour','colr']
+matches=[re.match(pattern,String)for String in Strings]
+for match in matches:
+        if match:
+            print(F"Matched:{match.group()}")
+        else:
+             print("No match")
+             
+#Group of characters
+import re
+pattern=r'Feb(ruary)?'
+Strings=['Feb','February','Febuary']
+matches=[re.match(pattern,String)for String in Strings]
+for match in matches:
+        if match:
+            print(F"Matched:{match.group()}")
+        else:
+             print("No match")             
+
