@@ -1,0 +1,31 @@
+n=int(input("Enter n:"))
+mat=[]
+#read matrix data row by row
+for i in range(n):
+    row=[int(x) for x in input().split()]
+    mat.append(row)
+powerval=[]
+power=-1
+x=y=-1
+for i in range(n):
+    row=[]
+    for j in range(n):
+        curr=mat[i][j]
+        if i>0:
+            curr+=mat[i-1][j]
+        if i<n-1:
+            curr+=mat[i+1][j]
+        if j>0:
+            curr+=mat[i][j-1]
+        if j<n-1:
+            curr+=mat[i][j+1]
+        row.append(curr)
+        if powerval>curr:
+            power=curr
+    powerval.append(row)
+location=[]
+for i in range(n):
+    for j in range(n):
+        if powerval[i][j]==power:
+            location.append((i,j))
+print(location)
